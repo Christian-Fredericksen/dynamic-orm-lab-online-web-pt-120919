@@ -21,4 +21,13 @@ class InteractiveRecord
     end
     column_names.compact
   end
+  
+  def initialize(id=nil, name, grade)
+    sql = <<- SQL (
+      id INTEGER PRIMARY KEY,
+      name TEXT,
+      grade INTEGER
+      );
+      SQL 
+      
 end
