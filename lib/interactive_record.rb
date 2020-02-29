@@ -6,9 +6,6 @@ class InteractiveRecord
   attr_accessor :id, :name, :grade
   
   def self.table_name
-    sql = <<-SQL
-    
-    SQL 
-    
-  end 
+    self.to_s.downcase.pluralize
+  end
 end
