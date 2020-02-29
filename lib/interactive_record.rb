@@ -22,12 +22,13 @@ class InteractiveRecord
     column_names.compact
   end
   
-  def initialize(id=nil, name, grade)
+  def initialize#(id=nil, name, grade)
     sql = <<- SQL (
       id INTEGER PRIMARY KEY,
       name TEXT,
       grade INTEGER
       );
       SQL 
-      
+      DB[:conn].execute(sql)
+  end
 end
