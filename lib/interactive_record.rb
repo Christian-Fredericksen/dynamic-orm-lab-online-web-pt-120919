@@ -22,13 +22,9 @@ class InteractiveRecord
     column_names.compact
   end
   
-  def initialize#(id=nil, name, grade)
-    sql = <<- SQL (
-      id INTEGER PRIMARY KEY,
-      name TEXT,
-      grade INTEGER
-      );
-      SQL 
-      DB[:conn].execute(sql)
+  def initialize(options={})
+    options.each do |property, value|
+      self.send("#{property}=", value)
+    end
   end
 end
